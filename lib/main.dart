@@ -61,15 +61,22 @@ class _AddressScreenState extends State<AddressScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
+    final style = theme.textTheme.headlineMedium!.copyWith(
+      color: Colors.black,
+      fontWeight: FontWeight.w500,
+      fontFamily: 'Poppins',
+    );
     return Scaffold(
       appBar: AppBar(
-        title: Text('Address Locator'),
+        title: Text('Address Locator', style: style),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             TextField(
+              style: style,
               keyboardType: TextInputType.number,
               inputFormatters: [
                 FilteringTextInputFormatter.digitsOnly,
@@ -97,7 +104,8 @@ class _AddressScreenState extends State<AddressScreen> {
             Text(
               'Address: $address',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 30,
+                fontFamily: "Poppins",
                 color: address == 'Invalid pincode' ? Colors.red : Colors.black,
               ),
             ),
